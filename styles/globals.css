@@ -16,12 +16,3 @@ code {
 .link {
   @apply font-medium text-[#0a66c2] transition hover:underline hover:opacity-90 dark:text-tertiary;
 }
-
-.layout {
-  @apply flex min-h-screen flex-col overflow-clip bg-ice font-prose font-medium text-gray-800 
-  opacity-[99%] dark:bg-navy dark:text-white;
-}
-
-.content {
-  @apply p-4;
-}
