@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { HomeIcon, TableCellsIcon, BeakerIcon, ChartPieIcon } from '@heroicons/react/24/outline'
 
 export default function Navigator() {
+  const router = useRouter()
   const [toggle, setToggle] = useState(true)
   const nav = [
     { name: 'Home', route: '/', icon: HomeIcon },
@@ -16,7 +17,6 @@ export default function Navigator() {
   ]
 
   const isActive = (route: string) => {
-    const router = useRouter()
     return route === router.asPath
   }
 
