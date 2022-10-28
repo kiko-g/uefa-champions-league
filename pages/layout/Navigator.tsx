@@ -1,16 +1,24 @@
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Toggler from './Toggler'
+import classNames from 'classnames'
 import DarkModeSwitchMinimal from './DarkModeSwitchMinimal'
 import { useState } from 'react'
-import { BeakerIcon, GlobeEuropeAfricaIcon } from '@heroicons/react/24/outline'
+import { HomeIcon, TableCellsIcon, BeakerIcon, ChartPieIcon } from '@heroicons/react/24/outline'
 
 export default function Navigator() {
   const [toggle, setToggle] = useState(true)
   const nav = [
-    { name: 'Tournament', route: '/', icon: GlobeEuropeAfricaIcon },
-    { name: 'Custom Draw', route: '/', icon: BeakerIcon },
-    { name: 'Over the years', route: '/', icon: BeakerIcon },
+    { name: 'Home', route: '/', icon: HomeIcon },
+    { name: 'Groups', route: '/groups', icon: TableCellsIcon },
+    { name: 'Simulation', route: '/simulation', icon: BeakerIcon },
+    { name: 'Probabilities', route: '/probabilities', icon: ChartPieIcon },
   ]
+
+  const isActive = (route: string) => {
+    const router = useRouter()
+    return route === router.asPath
+  }
 
   return (
     <>
@@ -27,12 +35,16 @@ export default function Navigator() {
         </div>
 
         {toggle ? (
-          <div className="flex flex-col gap-y-1">
+          <div className="flex flex-col gap-y-0.5">
             {nav.map((item, index) => (
               <Link href={item.route} key={`nav-${index}`}>
                 <div
-                  className="flex items-center justify-start gap-x-3 rounded 
-                px-2 py-1.5 transition hover:bg-primary hover:text-white"
+                  className={classNames(
+                    'flex items-center justify-start gap-x-3 rounded px-2 py-1.5 transition',
+                    isActive(item.route)
+                      ? 'bg-primary text-white hover:opacity-80'
+                      : 'hover:bg-primary hover:text-white'
+                  )}
                 >
                   <item.icon className="h-4 w-4" />
                   <span className="text-sm">{item.name}</span>
@@ -59,8 +71,12 @@ export default function Navigator() {
             {nav.map((item, index) => (
               <Link href={item.route} key={`nav-${index}`}>
                 <div
-                  className="flex items-center justify-start gap-x-3 rounded 
-                px-2 py-2 transition hover:bg-primary hover:text-white"
+                  className={classNames(
+                    'flex items-center justify-start gap-x-3 rounded px-2 py-2 transition',
+                    isActive(item.route)
+                      ? 'bg-primary text-white hover:opacity-80'
+                      : 'hover:bg-primary hover:text-white'
+                  )}
                 >
                   <item.icon className="h-4 w-4" />
                   <span className="text-sm">{item.name}</span>
@@ -77,8 +93,12 @@ export default function Navigator() {
               {nav.map((item, index) => (
                 <Link href={item.route} key={`nav-${index}`}>
                   <div
-                    className="flex items-center justify-start gap-x-3 rounded 
-                  px-2 py-2 transition hover:bg-primary hover:text-white hover:opacity-80"
+                    className={classNames(
+                      'flex items-center justify-start gap-x-3 rounded px-2 py-2 transition',
+                      isActive(item.route)
+                        ? 'bg-primary text-white hover:opacity-80'
+                        : 'hover:bg-primary hover:text-white'
+                    )}
                   >
                     <item.icon className="h-4 w-4" />
                   </div>
