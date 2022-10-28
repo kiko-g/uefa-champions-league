@@ -21,7 +21,7 @@ export default function Navigator() {
             <Link href="/">UCL</Link>
           </h3>
           <div className="flex items-center gap-x-1">
-            <Toggler actionHook={[toggle, setToggle]} />
+            <Toggler value={toggle} setValue={setToggle} />
             <DarkModeSwitchMinimal />
           </div>
         </div>
@@ -52,7 +52,7 @@ export default function Navigator() {
                 <Link href="/">UCL</Link>
               </h3>
               <div className="flex items-center gap-x-1">
-                <Toggler actionHook={[toggle, setToggle]} />
+                <Toggler value={toggle} setValue={setToggle} />
                 <DarkModeSwitchMinimal />
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function Navigator() {
         ) : (
           <div className="flex flex-col items-center gap-y-1">
             <DarkModeSwitchMinimal />
-            <Toggler actionHook={[toggle, setToggle]} />
+            <Toggler value={toggle} setValue={setToggle} />
 
             <div className="mt-4 flex flex-col gap-y-1">
               {nav.map((item, index) => (
