@@ -34,10 +34,14 @@
 
 /* Result */
 .simulation > .matches {
-  @apply flex h-full grow flex-col items-center justify-center 
-  gap-1 rounded bg-white p-4;
+  @apply flex h-full grow flex-col items-center justify-center gap-1 rounded
+  bg-[url('https://theanalyst.com/wp-content/uploads/2021/09/champions-league-preview-banner.jpg')] bg-cover bg-clip-border bg-center p-4;
 }
 
-.simulation > .matches > .match {
+.simulation > .matches > .display {
+  @apply rounded bg-navy/75 p-4 text-white dark:bg-light/75 dark:text-dark;
+}
+
+.simulation > .matches > .display > .match {
   @apply flex flex-row items-center justify-center gap-x-2;
 }
