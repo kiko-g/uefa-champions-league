@@ -41,9 +41,7 @@ export default function Navigator() {
                 <div
                   className={classNames(
                     'flex items-center justify-start gap-x-3 rounded px-2 py-1.5 transition',
-                    isActive(item.route)
-                      ? 'bg-primary text-white hover:opacity-80'
-                      : 'hover:bg-primary hover:text-white'
+                    isActive(item.route) ? 'bg-primary text-white hover:opacity-80' : 'hover:bg-primary hover:text-white'
                   )}
                 >
                   <item.icon className="h-4 w-4" />
@@ -73,9 +71,7 @@ export default function Navigator() {
                 <div
                   className={classNames(
                     'flex items-center justify-start gap-x-3 rounded px-2 py-1.5 transition',
-                    isActive(item.route)
-                      ? 'bg-primary text-white hover:opacity-80'
-                      : 'hover:bg-primary hover:text-white'
+                    isActive(item.route) ? 'bg-primary text-white hover:opacity-80' : 'hover:bg-primary hover:text-white'
                   )}
                 >
                   <item.icon className="h-4 w-4" />
@@ -95,9 +91,7 @@ export default function Navigator() {
                   <div
                     className={classNames(
                       'flex items-center justify-start gap-x-3 rounded px-2 py-1.5 transition',
-                      isActive(item.route)
-                        ? 'bg-primary text-white hover:opacity-80'
-                        : 'hover:bg-primary hover:text-white'
+                      isActive(item.route) ? 'bg-primary text-white hover:opacity-80' : 'hover:bg-primary hover:text-white'
                     )}
                   >
                     <item.icon className="h-4 w-4" />

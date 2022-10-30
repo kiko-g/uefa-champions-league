@@ -1,0 +1,22 @@
+{
+  "pot1": [
+    { "group": "A", "name": "Napoli", "country": "Italy", "badge": "https://api.sofascore.app/api/v1/team/2714/image" },
+    { "group": "B", "name": "FC Porto", "country": "Portugal", "badge": "https://api.sofascore.app/api/v1/team/3002/image" },
+    { "group": "C", "name": "Bayern M.", "country": "Germany", "badge": "https://api.sofascore.app/api/v1/team/2672/image" },
+    { "group": "D", "name": "Tottenham", "country": "England", "badge": "https://api.sofascore.app/api/v1/team/33/image" },
+    { "group": "E", "name": "Chelsea", "country": "England", "badge": "https://api.sofascore.app/api/v1/team/38/image" },
+    { "group": "F", "name": "Real Madrid", "country": "Spain", "badge": "https://api.sofascore.app/api/v1/team/2829/image" },
+    { "group": "G", "name": "Man City", "country": "England", "badge": "https://api.sofascore.app/api/v1/team/17/image" },
+    { "group": "H", "name": "PSG", "country": "France", "badge": "https://api.sofascore.app/api/v1/team/1644/image" }
+  ],
+  "pot2": [
+    { "group": "A", "name": "Liverpool", "country": "England", "badge": "https://api.sofascore.app/api/v1/team/44/image" },
+    { "group": "B", "name": "Club Brugge", "country": "Belgium", "badge": "https://api.sofascore.app/api/v1/team/2888/image" },
+    { "group": "C", "name": "Inter", "country": "Italy", "badge": "https://api.sofascore.app/api/v1/team/2697/image" },
+    { "group": "D", "name": "Sporting", "country": "Portugal", "badge": "https://api.sofascore.app/api/v1/team/3001/image" },
+    { "group": "E", "name": "Milan", "country": "Italy", "badge": "https://api.sofascore.app/api/v1/team/2692/image" },
+    { "group": "F", "name": "RB Leipzig", "country": "Germany", "badge": "https://api.sofascore.app/api/v1/team/36360/image" },
+    { "group": "G", "name": "Dortmund", "country": "Germany", "badge": "https://api.sofascore.app/api/v1/team/2673/image" },
+    { "group": "H", "name": "Benfica", "country": "Portugal", "badge": "https://api.sofascore.app/api/v1/team/3006/image" }
+  ]
+}

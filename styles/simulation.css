@@ -1,3 +1,43 @@
 .simulation {
-  @apply w-full p-1;
+  @apply flex h-full w-full items-start gap-4 p-1;
+}
+
+/* Staging */
+.simulation > .staging {
+  @apply flex w-fit flex-col gap-4;
+}
+
+.simulation > .staging > .teams {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.simulation > .staging > .teams > .pot {
+  @apply rounded bg-white px-4 py-4 dark:bg-primary;
+}
+
+.simulation > .staging > .teams > .pot > h3 {
+  @apply mb-1 text-xl font-bold uppercase tracking-wide;
+}
+
+.simulation > .staging > .teams > .pot > ul {
+  @apply flex flex-col gap-y-1;
+}
+
+.simulation > .staging > .teams > .pot > ul > li {
+  @apply flex items-center gap-x-2 text-base;
+}
+
+.simulation > .staging > button.run {
+  @apply flex w-full items-center justify-center gap-x-1 rounded bg-primary px-2 py-2 
+  text-white shadow transition hover:opacity-80 dark:bg-tertiary;
+}
+
+/* Result */
+.simulation > .matches {
+  @apply flex h-full grow flex-col items-center justify-center 
+  gap-1 rounded bg-white p-4;
+}
+
+.simulation > .matches > .match {
+  @apply flex flex-row items-center justify-center gap-x-2;
 }

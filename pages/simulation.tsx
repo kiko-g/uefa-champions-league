@@ -1,10 +1,73 @@
+import { useState } from 'react'
+import { PotTeam } from '../types'
+import Image from 'next/image'
 import Layout from './layout'
+import Last16 from '../data/last16.json'
+import { PlayIcon } from '@heroicons/react/24/solid'
 
 export default function Simulation() {
+  const pot1: PotTeam[] = Last16.pot1
+  const pot2: PotTeam[] = Last16.pot2
+  const [matches, setMatches] = useState<any>([])
+
+  const simulate = () => {
+    const newMatches = []
+    for (let i = 0; i < 8; i++) {
+      newMatches.push([pot1[i], pot2[i]])
+    }
+
+    setMatches([...newMatches])
+  }
+
   return (
     <Layout>
       <div className="simulation">
-        <h3>Simulation content</h3>
+        {/* Staging */}
+        <div className="staging">
+          <div className="teams">
+            <div className="pot">
+              <h3>1st seed teams</h3>
+              <ul>
+                {pot1.map((team, teamIdx) => (
+                  <li key={`pot-1-team-${teamIdx}`}>
+                    <Image src={team.badge} alt={`${team.name} badge`} width={24} height={24} />
+                    <p>{team.name}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="pot">
+              <h3>2nd seed teams</h3>
+              <ul>
+                {pot2.map((team, teamIdx) => (
+                  <li key={`pot-2-team-${teamIdx}`}>
+                    <Image src={team.badge} alt={`${team.name} badge`} width={24} height={24} />
+                    <p>{team.name}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <button className="run" onClick={simulate}>
+            <span>Run</span>
+            <PlayIcon className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Matches */}
+        <div className="matches">
+          {matches.map((match: any, matchIdx: number) => (
+            <div key={`match-${matchIdx}`} className="match">
+              <Image src={match[0].badge} alt={`${match[0].name} badge`} width={24} height={24} />
+              <p>{match[0].name}</p>
+              <span>&nbsp;-&nbsp;</span>
+              <p>{match[1].name}</p>
+              <Image src={match[1].badge} alt={`${match[1].name} badge`} width={24} height={24} />
+            </div>
+          ))}
+        </div>
       </div>
     </Layout>
   )
