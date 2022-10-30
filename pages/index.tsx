@@ -1,14 +1,25 @@
-import Head from 'next/head'
+import Link from 'next/link'
 import Image from 'next/image'
 import Layout from './layout'
-import styles from '../styles/Home.module.css'
-
+import { Banner, Simulation, Groups, Probabilities } from '../public/images'
 
 export default function Home() {
   return (
     <Layout>
-      <div className={styles.home}>
-        <h3>Home content</h3>
+      <div className="home">
+        <div className="options">
+          <Link href="/groups" className="link">
+            <Image src={Groups} alt="Consult groups" className="image" />
+          </Link>
+
+          <Link href="/simulation" className="link">
+            <Image src={Simulation} alt="Simulate draw" className="image" />
+          </Link>
+
+          <Link href="/probabilities" className="link">
+            <Image src={Probabilities} alt="Draw Probabilities" className="image" />
+          </Link>
+        </div>
       </div>
     </Layout>
   )

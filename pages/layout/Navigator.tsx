@@ -58,7 +58,7 @@ export default function Navigator() {
       {/* Desktop */}
       <div className="hidden rounded bg-light p-3 dark:bg-navyish lg:flex">
         {toggle ? (
-          <div className="flex min-w-[12rem] flex-col gap-y-1">
+          <div className="flex min-w-[12rem] flex-col gap-y-1.5">
             <div className="mb-2 flex items-center justify-between rounded px-2">
               <h3 className="font-bold tracking-tight hover:underline hover:opacity-80">
                 <Link href="/">UCL</Link>
@@ -72,7 +72,7 @@ export default function Navigator() {
               <Link href={item.route} key={`nav-${index}`}>
                 <div
                   className={classNames(
-                    'flex items-center justify-start gap-x-3 rounded px-2 py-2 transition',
+                    'flex items-center justify-start gap-x-3 rounded px-2 py-1.5 transition',
                     isActive(item.route)
                       ? 'bg-primary text-white hover:opacity-80'
                       : 'hover:bg-primary hover:text-white'
@@ -85,7 +85,7 @@ export default function Navigator() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center gap-y-1">
+          <div className="flex flex-col items-center gap-y-2">
             <DarkModeSwitchMinimal />
             <Toggler value={toggle} setValue={setToggle} />
 
@@ -94,7 +94,7 @@ export default function Navigator() {
                 <Link href={item.route} key={`nav-${index}`}>
                   <div
                     className={classNames(
-                      'flex items-center justify-start gap-x-3 rounded px-2 py-2 transition',
+                      'flex items-center justify-start gap-x-3 rounded px-2 py-1.5 transition',
                       isActive(item.route)
                         ? 'bg-primary text-white hover:opacity-80'
                         : 'hover:bg-primary hover:text-white'

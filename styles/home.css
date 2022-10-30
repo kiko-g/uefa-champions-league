@@ -1,0 +1,15 @@
+.home {
+  @apply w-full p-1;
+}
+
+.home > .options {
+  @apply grid grid-cols-1 gap-4 lg:grid-cols-3;
+}
+
+.home > .options > .link {
+  @apply transition hover:opacity-80 hover:translate-y-1;
+}
+
+.home > .options > .link > .image {
+  @apply mx-auto my-auto h-72 w-full rounded-xl object-cover shadow;
+}
