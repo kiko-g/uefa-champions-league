@@ -1,3 +1,38 @@
 .probabilities {
   @apply w-full p-1;
 }
+
+.probabilities .combinations {
+  @apply flex w-full;
+}
+
+.probabilities .combinations .column {
+  @apply block w-[11.111111%];
+}
+
+/* Cells */
+.probabilities .combinations .column .cell {
+  @apply flex h-14 w-full items-center justify-center 
+  py-1 px-2 text-sm font-normal tracking-tighter;
+}
+
+.probabilities .combinations .column .top-cell {
+  @apply flex h-14 w-full items-center justify-center bg-navy py-3 px-4 dark:bg-gray-900;
+}
+
+.probabilities .combinations .column .top-cell > button {
+  @apply flex w-full items-center justify-center gap-x-1 rounded bg-teal-600 px-1 py-1 
+  text-white shadow transition hover:opacity-80 disabled:cursor-not-allowed disabled:bg-rose-700;
+}
+
+.probabilities .combinations .column .cell.badge {
+  @apply bg-navy dark:bg-gray-900;
+}
+
+.probabilities .combinations .column .cell.filled {
+  @apply bg-white dark:bg-primary;
+}
+
+.probabilities .combinations .column .cell.blank {
+  @apply bg-[#dfdbe5] dark:bg-gray-900;
+}

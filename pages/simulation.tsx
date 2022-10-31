@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Layout from './layout'
 import Last16 from '../data/last16.json'
 import { PlayIcon } from '@heroicons/react/24/solid'
+import { simulate } from '../utils'
 
 export default function Simulation() {
   const pot1: PotTeam[] = Last16.pot1
@@ -11,47 +12,9 @@ export default function Simulation() {
   const [matches, setMatches] = useState<any>([])
   const [fresh, setFresh] = useState(false)
 
-  const filterSet = (target: PotTeam, teams: PotTeam[]) => {
-    const set: PotTeam[] = []
-
-    for (let team of teams) {
-      if (team.country !== target.country && team.group !== target.group) {
-        set.push(team)
-      }
-    }
-
-    return set
-  }
-
-  const simulate = () => {
+  const runSimulation = () => {
     setFresh(true)
-    let valid = true
-    let newMatches = []
-
-    do {
-      newMatches = []
-      const set1 = JSON.parse(JSON.stringify(pot1))
-      const set2 = JSON.parse(JSON.stringify(pot2))
-
-      for (let i = 0; i < 8; i++) {
-        const randomIndexA = Math.floor(Math.random() * set1.length)
-        const teamA = set1[randomIndexA]
-        set1.splice(randomIndexA, 1) // remove team A from set 1
-
-        const curatedSet2 = filterSet(teamA, set2) // apply restrictions
-        const randomIndexB = Math.floor(Math.random() * curatedSet2.length)
-        const teamB = set2[randomIndexB]
-        set2.splice(randomIndexB, 1) // remove team B from set 2
-
-        newMatches.push([teamA, teamB])
-      }
-
-      valid = newMatches
-        .map((pair) => pair[0].country === pair[1].country || pair[0].group === pair[1].group)
-        .every((item) => item === false)
-    } while (!valid)
-
-    setMatches(JSON.parse(JSON.stringify(newMatches)))
+    setMatches(simulate(pot1, pot2))
     setTimeout(() => setFresh(false), 200)
   }
 
@@ -86,7 +49,7 @@ export default function Simulation() {
             </div>
           </div>
 
-          <button className="run" onClick={simulate} disabled={fresh}>
+          <button className="run" onClick={runSimulation} disabled={fresh}>
             <span>Run</span>
             <PlayIcon className="h-5 w-5" />
           </button>
