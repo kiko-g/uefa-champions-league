@@ -10,11 +10,44 @@ export default function Simulation() {
   const pot2: PotTeam[] = Last16.pot2
   const [matches, setMatches] = useState<any>([])
 
-  const simulate = () => {
-    const newMatches = []
-    for (let i = 0; i < 8; i++) {
-      newMatches.push([pot1[i], pot2[i]])
+  const filterSet = (target: PotTeam, teams: PotTeam[]) => {
+    const set: PotTeam[] = []
+
+    for (let team of teams) {
+      if (team.country !== target.country && team.group !== target.group) {
+        set.push(team)
+      }
     }
+
+    return set
+  }
+
+  const simulate = () => {
+    let valid = true
+    let newMatches = []
+
+    do {
+      newMatches = []
+      const set1 = JSON.parse(JSON.stringify(pot1))
+      const set2 = JSON.parse(JSON.stringify(pot2))
+
+      for (let i = 0; i < 8; i++) {
+        const randomIndexA = Math.floor(Math.random() * set1.length)
+        const teamA = set1[randomIndexA]
+        set1.splice(randomIndexA, 1) // remove team A from set 1
+
+        const curatedSet2 = filterSet(teamA, set2) // apply restrictions
+        const randomIndexB = Math.floor(Math.random() * curatedSet2.length)
+        const teamB = set2[randomIndexB]
+        set2.splice(randomIndexB, 1) // remove team B from set 2
+
+        newMatches.push([teamA, teamB])
+      }
+
+      valid = newMatches
+        .map((pair) => pair[0].country === pair[1].country || pair[0].group === pair[1].group)
+        .every((item) => item === false)
+    } while (!valid)
 
     setMatches([...newMatches])
   }
@@ -61,7 +94,7 @@ export default function Simulation() {
           {matches.length !== 0 ? (
             <div className="display">
               {matches.map((match: any, matchIdx: number) => (
-                <div key={`match-${matchIdx}`} className="match">
+                <div key={`match-${matchIdx}`} className={`match ${matchIdx !== matches.length - 1 ? 'pb-2 border-b' : ''}`}>
                   <div className="side">
                     <Image src={match[0].badge} alt={`${match[0].name} badge`} width={24} height={24} />
                     <span>{match[0].name}</span>
