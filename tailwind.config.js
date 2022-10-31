@@ -58,6 +58,7 @@ module.exports = {
       animation: {
         dark: 'dark 400ms ease-in-out',
         light: 'light 400ms ease-in-out',
+        'pulse-finite': 'pulse 400ms cubic-bezier(0, 0, 0.2, 1)',
       },
     },
   },

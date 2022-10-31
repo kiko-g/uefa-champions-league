@@ -9,6 +9,7 @@ export default function Simulation() {
   const pot1: PotTeam[] = Last16.pot1
   const pot2: PotTeam[] = Last16.pot2
   const [matches, setMatches] = useState<any>([])
+  const [fresh, setFresh] = useState(false)
 
   const filterSet = (target: PotTeam, teams: PotTeam[]) => {
     const set: PotTeam[] = []
@@ -23,6 +24,7 @@ export default function Simulation() {
   }
 
   const simulate = () => {
+    setFresh(true)
     let valid = true
     let newMatches = []
 
@@ -49,7 +51,8 @@ export default function Simulation() {
         .every((item) => item === false)
     } while (!valid)
 
-    setMatches([...newMatches])
+    setMatches(JSON.parse(JSON.stringify(newMatches)))
+    setTimeout(() => setFresh(false), 200)
   }
 
   return (
@@ -83,7 +86,7 @@ export default function Simulation() {
             </div>
           </div>
 
-          <button className="run" onClick={simulate}>
+          <button className="run" onClick={simulate} disabled={fresh}>
             <span>Run</span>
             <PlayIcon className="h-5 w-5" />
           </button>
@@ -94,13 +97,13 @@ export default function Simulation() {
           {matches.length !== 0 ? (
             <div className="display">
               {matches.map((match: any, matchIdx: number) => (
-                <div key={`match-${matchIdx}`} className={`match ${matchIdx !== matches.length - 1 ? 'pb-2 border-b' : ''}`}>
-                  <div className="side">
+                <div key={`match-${matchIdx}`} className={`match ${matchIdx !== matches.length - 1 ? 'border-b pb-2' : ''}`}>
+                  <div className={`side ${fresh ? 'animate-pulse-finite' : ''}`}>
                     <Image src={match[0].badge} alt={`${match[0].name} badge`} width={24} height={24} />
                     <span>{match[0].name}</span>
                   </div>
 
-                  <div className="side">
+                  <div className={`side ${fresh ? 'animate-pulse-finite' : ''}`}>
                     <span>{match[1].name}</span>
                     <Image src={match[1].badge} alt={`${match[1].name} badge`} width={24} height={24} />
                   </div>

@@ -8,7 +8,7 @@
 }
 
 .simulation > .staging > .teams {
-  @apply flex w-full flex-col gap-4 xl:flex-row text-white;
+  @apply flex w-full flex-col gap-4 text-white xl:flex-row;
 }
 
 .simulation > .staging > .teams > .pot {
@@ -16,20 +16,20 @@
 }
 
 .simulation > .staging > .teams > .pot > h3 {
-  @apply mb-1 whitespace-nowrap text-xl font-bold uppercase tracking-wide;
+  @apply mb-2 whitespace-nowrap text-xl font-bold uppercase tracking-wide;
 }
 
 .simulation > .staging > .teams > .pot > ul {
-  @apply flex flex-col gap-y-1;
+  @apply flex flex-col gap-y-1.5;
 }
 
 .simulation > .staging > .teams > .pot > ul > li {
-  @apply flex items-center gap-x-2 text-base;
+  @apply flex items-center gap-x-2 rounded bg-navy/75 py-1 px-2 text-base font-normal;
 }
 
 .simulation > .staging > button.run {
-  @apply flex w-full items-center justify-center gap-x-1 rounded bg-teal-700 px-2 py-2 
-  text-white shadow transition hover:opacity-80 dark:bg-teal-600;
+  @apply flex w-full items-center justify-center gap-x-1 rounded bg-teal-600 px-2 py-2 
+  text-white shadow transition hover:opacity-80 disabled:cursor-not-allowed disabled:bg-rose-600;
 }
 
 /* Result */
