@@ -58,17 +58,23 @@ export default function Simulation() {
 
         {/* Matches */}
         <div className="matches">
-          <div className="display">
-            {matches.map((match: any, matchIdx: number) => (
-              <div key={`match-${matchIdx}`} className="match">
-                <Image src={match[0].badge} alt={`${match[0].name} badge`} width={24} height={24} />
-                <p>{match[0].name}</p>
-                <span>&nbsp;-&nbsp;</span>
-                <p>{match[1].name}</p>
-                <Image src={match[1].badge} alt={`${match[1].name} badge`} width={24} height={24} />
-              </div>
-            ))}
-          </div>
+          {matches.length !== 0 ? (
+            <div className="display">
+              {matches.map((match: any, matchIdx: number) => (
+                <div key={`match-${matchIdx}`} className="match">
+                  <div className="side">
+                    <Image src={match[0].badge} alt={`${match[0].name} badge`} width={24} height={24} />
+                    <span>{match[0].name}</span>
+                  </div>
+
+                  <div className="side">
+                    <span>{match[1].name}</span>
+                    <Image src={match[1].badge} alt={`${match[1].name} badge`} width={24} height={24} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : null}
         </div>
       </div>
     </Layout>

@@ -1,22 +1,22 @@
 .simulation {
-  @apply flex h-full w-full items-start gap-4 p-1;
+  @apply flex h-full w-full flex-col items-start gap-4 p-1 xl:flex-row;
 }
 
 /* Staging */
 .simulation > .staging {
-  @apply flex w-fit flex-col gap-4;
+  @apply flex w-full flex-col gap-4 xl:w-fit;
 }
 
 .simulation > .staging > .teams {
-  @apply grid grid-cols-2 gap-4;
+  @apply flex w-full flex-col gap-4 xl:flex-row;
 }
 
 .simulation > .staging > .teams > .pot {
-  @apply rounded bg-white px-4 py-4 dark:bg-primary;
+  @apply rounded bg-[url('../public/images/banner.jpg')] bg-cover bg-left px-4 py-4;
 }
 
 .simulation > .staging > .teams > .pot > h3 {
-  @apply mb-1 text-xl font-bold uppercase tracking-wide;
+  @apply mb-1 whitespace-nowrap text-xl font-bold uppercase tracking-wide;
 }
 
 .simulation > .staging > .teams > .pot > ul {
@@ -28,20 +28,30 @@
 }
 
 .simulation > .staging > button.run {
-  @apply flex w-full items-center justify-center gap-x-1 rounded bg-primary px-2 py-2 
-  text-white shadow transition hover:opacity-80 dark:bg-tertiary;
+  @apply flex w-full items-center justify-center gap-x-1 rounded bg-teal-700 px-2 py-2 
+  text-white shadow transition hover:opacity-80 dark:bg-teal-600;
 }
 
 /* Result */
 .simulation > .matches {
-  @apply flex h-full grow flex-col items-center justify-center gap-1 rounded
-  bg-[url('https://theanalyst.com/wp-content/uploads/2021/09/champions-league-preview-banner.jpg')] bg-cover bg-clip-border bg-center p-4;
+  @apply flex h-full min-h-[20rem] w-full grow flex-col items-end justify-center gap-1 
+  rounded bg-[url('https://theanalyst.com/wp-content/uploads/2021/09/champions-league-preview-banner.jpg')] 
+  bg-cover bg-clip-border bg-center p-3 xl:p-4;
 }
 
 .simulation > .matches > .display {
-  @apply rounded bg-navy/75 p-4 text-white dark:bg-light/75 dark:text-dark;
+  @apply flex w-full flex-col gap-y-2 rounded bg-navy/75 p-2 text-sm font-normal 
+  text-white dark:bg-navy/90 xl:w-fit xl:p-4 xl:text-base xl:font-medium;
 }
 
 .simulation > .matches > .display > .match {
-  @apply flex flex-row items-center justify-center gap-x-2;
+  @apply flex flex-row items-center justify-between gap-x-4 xl:gap-x-16;
+}
+
+.simulation > .matches > .display > .match > .side {
+  @apply flex items-center gap-x-2;
+}
+
+.simulation > .matches > .display > .match > .side > span {
+  @apply whitespace-nowrap;
 }
